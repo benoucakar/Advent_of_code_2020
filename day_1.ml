@@ -1,4 +1,4 @@
-let seznam_str_to_int vsebina_datoteke = 
+let vsebina_v_sez_int vsebina_datoteke = 
     let seznam = String.split_on_char '\n' vsebina_datoteke in
     seznam |> List.filter (fun s -> s <> "") |> List.map int_of_string
 
@@ -13,13 +13,13 @@ let par_do_vsote vsota sez =
         poisci_par sez
 
 let naloga1 vsebina_datoteke =
-    let sez_stevil = seznam_str_to_int vsebina_datoteke in
+    let sez_stevil = vsebina_v_sez_int vsebina_datoteke in
     match par_do_vsote 2020 sez_stevil with
     | None -> "Ni para"
     | Some (m, n) -> string_of_int (m * n)
 
 let naloga2 vsebina_datoteke =
-    let sez_stevil = seznam_str_to_int vsebina_datoteke in
+    let sez_stevil = vsebina_v_sez_int vsebina_datoteke in
     let rec poisci_trojico = function
         | [] -> "Ni trojice"
         | n::ns -> 
